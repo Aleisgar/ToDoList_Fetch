@@ -1,12 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+body {
+    background-image: url("https://img.freepik.com/foto-gratis/disposicion-elementos-escritorio-sobre-fondo-amarillo_23-2148513310.jpg?t=st=1654202350~exp=1654202950~hmac=93094af7440ccc2fd8a25867d2ffb25cf380a813ab3da889eee7a203bb717a20&w=740");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-/* 
+h1 {
+    color: #f27910;
+    font-family: 'Indie Flower'
+}
+button {
+    opacity: 0;
+  }
+  
+  li:hover button {
+    opacity: 1;
+  }
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+li {
+    list-style-type: none;
+    height: 40px;
+    padding-bottom: 3px;
+    font-size: 2.5rem;
+    border-bottom: solid 1px #6610f2;
+    font-family: 'Indie Flower';
+    margin-bottom: 10px;
+}
+button{
+    font-size: 1.5rem;
+}
 
-*/
+ul {
+    margin-top: 2cm;
+}
