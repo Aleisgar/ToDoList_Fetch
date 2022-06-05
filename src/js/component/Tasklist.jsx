@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Tasklist = () => {
 	const [task, setTask] = useState("");
@@ -18,7 +18,33 @@ const Tasklist = () => {
 	function deleteTask(task) {
 		setListOfTasks(listOfTasks.filter((item) => item !== task));
 	}
+	// const newList = listOfTasks.map((item, index) =>
+	// 	console.log(<li key={index}>{item.label}</li>)
+	// );
+	useEffect(() => {
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/Aleisgar")
+			.then((resp) => resp.json())
+			.then((data) => console.log(data[0].label));
+	}, []);
 
+	useEffect(() => {
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/Aleisgar", {
+			method: "PUT",
+			body: JSON.stringify(todos),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((resp) => resp.json())
+			.then(
+				listOfTasks.map((item, index) =>
+					console.log(<li key={index}>{item.label}</li>)
+				)
+			);
+	});
+	//
+
+	// })
 	return (
 		<>
 			<input
@@ -44,7 +70,7 @@ const Tasklist = () => {
 							className="btn-trash border border-1 float-end"
 							onClick={() => deleteTask(item)}>
 							{/* elimina cada elemento item que es el del array
-						listOfTask */}
+						listOfTask  */}
 							<i className="fas fa-trash-alt"></i>
 						</button>
 					</li>
